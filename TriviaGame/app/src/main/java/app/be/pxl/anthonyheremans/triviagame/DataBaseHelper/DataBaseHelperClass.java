@@ -91,6 +91,7 @@ public class DataBaseHelperClass extends SQLiteOpenHelper {
     }
 
     //TODO :: seperate to other class, everything under this
+    // insert
     public boolean insertUser(String username, String password) {
         //create statement
         SQLiteDatabase db = this.getWritableDatabase();
@@ -113,6 +114,30 @@ public class DataBaseHelperClass extends SQLiteOpenHelper {
 
     }
 
+    public boolean insertScore(int Score, String difficulty, String subject, int userId)
+    {
+        //create statement
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        //put values into statement
+        contentValues.put(COL_SCORES_2, userId);
+        contentValues.put(COL_SCORES_3, difficulty);
+        contentValues.put(COL_SCORES_4, subject);
+        contentValues.put(COL_SCORES_5, Score);
+
+
+        //insert values into database
+        //incase of error, returns -1 else row value
+        long result = db.insert(TABLE_NAME_SCORES, null, contentValues);
+
+        if (result != -1)
+            return true;
+        else return false;
+
+    }
+
+    //select
     public Cursor getUserLogin(String username, String password) {
 
         //create statement
@@ -127,4 +152,20 @@ public class DataBaseHelperClass extends SQLiteOpenHelper {
         //cursor class is an interface
         return cursor;
     }
+    public Cursor getPlayedGames(int userID, String difficulty)
+    {
+//create statement
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(
+                "select * " +
+                        "from " + TABLE_NAME_SCORES +
+                        " where " + COL_SCORES_2 + " = " + userID +
+                        " and " + COL_SCORES_3 + " like '" + difficulty + "';"
+                , null);
+
+        //cursor class is an interface
+        return cursor;
+    }
+
+
 }

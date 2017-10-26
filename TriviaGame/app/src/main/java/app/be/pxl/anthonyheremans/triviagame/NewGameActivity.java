@@ -12,6 +12,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import app.be.pxl.anthonyheremans.triviagame.Logic.SubjectHelper;
+
 public class NewGameActivity extends AppCompatActivity {
     private String categoryValue;
     private String radioButtonValue;
@@ -59,57 +61,7 @@ public class NewGameActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), ((TextView) view).getText(),
                         Toast.LENGTH_SHORT).show();
                 //match category's with the ID's
-                switch (((TextView) view).getText().toString()) {
-                    case "General Knowledge":
-                        categoryValue = "9";
-                        break;
-                    case "Entertainment: Books":
-                        categoryValue = "10";
-                        break;
-                    case "Entertainment: Film":
-                        categoryValue = "11";
-                        break;
-                    case "Entertainment: Music":
-                        categoryValue = "12";
-                        break;
-                    case "Entertainment: Television":
-                        categoryValue = "14";
-                        break;
-                    case "Science &amp; Nature":
-                        categoryValue = "17";
-                        break;
-                    case "Science: Computer":
-                        categoryValue = "18";
-                        break;
-                    case "Science: Mathematics":
-                        categoryValue = "19";
-                        break;
-                    case "Mythology":
-                        categoryValue = "20";
-                        break;
-                    case "Sports":
-                        categoryValue = "21";
-                        break;
-                    case "Geography":
-                        categoryValue = "22";
-                        break;
-                    case "History":
-                        categoryValue = "23";
-                        break;
-                    case "Politics":
-                        categoryValue = "24";
-                        break;
-                    case "Art":
-                        categoryValue = "25";
-                        break;
-//                    case "Celebrities":
-//                        categoryValue = "26";
-//                        break;
-//                   case "Animals":
-//                        categoryValue = "27";
-//                        break;
-                }
-
+                categoryValue = SubjectHelper.subjectStringToId(((TextView) view).getText().toString());
             }
 
         });

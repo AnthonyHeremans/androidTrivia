@@ -38,7 +38,7 @@ public class RoundOneActivity extends AppCompatActivity {
 
     //shared preference for Score
     private SharedPreferences sharePrefsScore;
-    private static final String SCORE_PREFS = "scorePrefs";
+    public static final String SCORE_PREFS = "scorePrefs";
     private SharedPreferences.Editor editorScore;
     private Context contextScore;
 
@@ -117,6 +117,11 @@ public class RoundOneActivity extends AppCompatActivity {
             questionNumber.setText("Question " + (questionId + 1));
             TextView question = (TextView) findViewById(R.id.txtQuestion);
             question.setText(roundOne[questionId].getQuestion());
+            // set coins
+            TextView coinsTextView = (TextView)findViewById(R.id.TxtCoins);
+
+            //better approuch than .tostring()
+            coinsTextView.setText(String.valueOf(score));
         } else {
             //make new preferences for score
             sharePrefsScore = contextScore.getSharedPreferences(SCORE_PREFS, contextScore.MODE_PRIVATE);
