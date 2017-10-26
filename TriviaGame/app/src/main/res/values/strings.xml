@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">TriviaGame</string>
+    <string-array name="trivia_array">
+        <item>General Knowledge</item>
+        <item>Entertainment: Books</item>
+        <item>Entertainment: Film</item>
+        <item>Entertainment: Music</item>
+        <item>Entertainment: Television</item>
+        <item>Science &amp; Nature</item>
+        <item>Science: Computer</item>
+        <item>Science: Mathematics</item>
+        <item>Mythology</item>
+        <item>Sports</item>
+        <item>Geography</item>
+        <item>History</item>
+        <item>Politics</item>
+        <item>Art</item>
+        <!-- <item>Celebrities</item>
+        <item>Animals</item>-->
+    </string-array>
+</resources>

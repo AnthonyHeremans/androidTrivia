@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.be.pxl.anthonyheremans.triviagame.HomeActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:id="@+id/LabelCoin"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Coins : "
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/TxtCoins"
+            android:layout_alignEnd="@+id/TxtCoins" />
+
+        <TextView
+            android:id="@+id/TxtCoins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="000"
+            android:layout_alignBaseline="@+id/LabelCoin"
+            android:layout_alignBottom="@+id/LabelCoin"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="39dp"
+            android:layout_marginEnd="39dp" />
+
+        <Button
+            android:id="@+id/BtnNewGame"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/LabelCoin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:text="New Game"
+            android:onClick="newGameClick"/>
+
+        <TextView
+            android:id="@+id/LabelHighScores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/BtnNewGame"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp"
+            android:textSize="32sp"
+            android:text="High Scores" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black"
+            android:layout_marginTop="180dp"
+            android:id="@+id/view4" />
+
+        <TextView
+            android:id="@+id/TxtDifficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp"
+            android:text="Easy" />
+
+        <Button
+            android:id="@+id/BtnLeft"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="links"
+            android:layout_below="@+id/view4"
+            android:layout_alignLeft="@+id/LabelHighScores"
+            android:layout_alignStart="@+id/LabelHighScores" />
+
+        <Button
+            android:id="@+id/BtnRight"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="rechts"
+            android:layout_alignBaseline="@+id/TxtDifficulty"
+            android:layout_alignBottom="@+id/TxtDifficulty"
+            android:layout_alignRight="@+id/LabelHighScores"
+            android:layout_alignEnd="@+id/LabelHighScores" />
+
+        <ListView
+            android:id="@+id/LstScores"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/BtnLeft"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:headerDividersEnabled="false" />
+        <!--android:layout_centerHorizontal="true" -->
+    </RelativeLayout>
+</android.widget.RelativeLayout>
