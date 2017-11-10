@@ -32,12 +32,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="12dp"
-                android:text="Coins : " />
+                android:text="Score : " />
 
             <TextView
                 android:id="@+id/TxtCoins"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="39dp"
                 android:layout_marginRight="39dp"
                 android:text="000" />
