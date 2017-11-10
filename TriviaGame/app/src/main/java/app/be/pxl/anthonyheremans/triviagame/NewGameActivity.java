@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import app.be.pxl.anthonyheremans.triviagame.Logic.Drawer;
 import app.be.pxl.anthonyheremans.triviagame.Logic.SubjectHelper;
 
 public class NewGameActivity extends AppCompatActivity {
@@ -30,6 +31,51 @@ public class NewGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
         context = getApplicationContext();
+        //        //nav list
+        ListView list = (ListView) findViewById(R.id.navList);
+        Drawer drawer = new Drawer();
+        drawer.addDrawerItems(getApplicationContext(), list);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent t;
+                switch (position) {
+
+                    case 0:
+                        Toast.makeText(getApplicationContext(), "Home",
+                                Toast.LENGTH_SHORT).show();
+                        t = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(t);
+
+                        break;
+                    case 1:
+
+                        Toast.makeText(getApplicationContext(), "New Game",
+                                Toast.LENGTH_SHORT).show();
+                        t = new Intent(getApplicationContext(), NewGameActivity.class);
+                        startActivity(t);
+                        break;
+                    case 2:
+                        Toast.makeText(getApplicationContext(), "Go to shop",
+                                Toast.LENGTH_SHORT).show();
+                        t = new Intent(getApplicationContext(), ShopActivity.class);
+                        startActivity(t);
+                        break;
+                    case 3:
+
+                        Toast.makeText(getApplicationContext(), "Logout",
+                                Toast.LENGTH_SHORT).show();
+                        //delete share pref
+                        SharedPreferences settings = context.getSharedPreferences("USER_PREFS", Context.MODE_PRIVATE);
+                        settings.edit().clear().commit();
+                        t = new Intent(getApplicationContext(), ShopActivity.class);
+                        startActivity(t);
+                        break;
+                }
+            }
+        });
+
         SelectListItem();
         RadioClick();
 

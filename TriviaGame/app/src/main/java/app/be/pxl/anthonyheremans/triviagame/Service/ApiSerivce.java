@@ -8,8 +8,10 @@ import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 
 /**
  * Created by 11401671 on 17/10/2017.
@@ -23,13 +25,21 @@ public class ApiSerivce extends AsyncTask<String, Void, String> {
 
     protected void onPreExecute() {
     }
+
     //https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=boolean
     @Override
     public String doInBackground(String... params) {
         //getting parameters
-        String difficulty = params[0];
-        String category = params[1];
-        String type = params[2];
+        String difficulty = null;
+        String category = null;
+        String type = null;
+
+//            difficulty = new String(params[0].getBytes("ISO-8859-1"), "UTF-8");
+//            category = new String(params[1].getBytes("ISO-8859-1"), "UTF-8");
+//            type = new String(params[2].getBytes("ISO-8859-1"), "UTF-8");
+        difficulty = params[0];
+        category = params[1];
+        type = params[2];
         String amount = "10";
         String result;
 
@@ -51,8 +61,9 @@ public class ApiSerivce extends AsyncTask<String, Void, String> {
 
                     //put api data in variable
                     InputStream in = new BufferedInputStream(con.getInputStream());
-                    BufferedReader bufferedReader = new BufferedReader(
-                            new InputStreamReader(in));
+
+                    //BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
                     String json;
 
                     //logging

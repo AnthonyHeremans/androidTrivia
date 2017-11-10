@@ -6,7 +6,9 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ import app.be.pxl.anthonyheremans.triviagame.DataBaseHelper.DataBaseHelperClass;
 import app.be.pxl.anthonyheremans.triviagame.DomainClasses.BufferClassRoundTwo;
 import app.be.pxl.anthonyheremans.triviagame.DomainClasses.RoundTwo;
 import app.be.pxl.anthonyheremans.triviagame.DomainClasses.User;
+import app.be.pxl.anthonyheremans.triviagame.Logic.Drawer;
 import app.be.pxl.anthonyheremans.triviagame.Logic.SubjectHelper;
 import app.be.pxl.anthonyheremans.triviagame.Service.ApiSerivce;
 
@@ -61,6 +64,51 @@ public class RoundTwoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_round_two);
+
+        //        //nav list
+        ListView list = (ListView) findViewById(R.id.navList);
+        Drawer drawer = new Drawer();
+        drawer.addDrawerItems(getApplicationContext(), list);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent t;
+                switch (position) {
+
+                    case 0:
+                        Toast.makeText(getApplicationContext(), "Home",
+                                Toast.LENGTH_SHORT).show();
+                        t = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(t);
+
+                        break;
+                    case 1:
+
+                        Toast.makeText(getApplicationContext(), "New Game",
+                                Toast.LENGTH_SHORT).show();
+                        t = new Intent(getApplicationContext(), NewGameActivity.class);
+                        startActivity(t);
+                        break;
+                    case 2:
+                        Toast.makeText(getApplicationContext(), "Go to shop",
+                                Toast.LENGTH_SHORT).show();
+                        t = new Intent(getApplicationContext(), ShopActivity.class);
+                        startActivity(t);
+                        break;
+                    case 3:
+
+                        Toast.makeText(getApplicationContext(), "Logout",
+                                Toast.LENGTH_SHORT).show();
+                        //delete share pref
+                        SharedPreferences settings = context.getSharedPreferences("USER_PREFS", Context.MODE_PRIVATE);
+                        settings.edit().clear().commit();
+                        t = new Intent(getApplicationContext(), ShopActivity.class);
+                        startActivity(t);
+                        break;
+                }
+            }
+        });
         //setup database
         myDb = new DataBaseHelperClass(this);
         //get data from preferences for api
@@ -155,9 +203,6 @@ public class RoundTwoActivity extends AppCompatActivity {
             Intent after = new Intent(getApplicationContext(), AfterQuizActivity.class);
             after.putExtra("SCORE_OF_USER",String.valueOf(score));
             startActivity(after);
-//            //TODO : go to thirth screen NOT SECOND
-//            Intent roudnTwoActivty = new Intent(getApplicationContext(),RoundTwoActivity.class);
-//            startActivity(roudnTwoActivty);
 
 
         }

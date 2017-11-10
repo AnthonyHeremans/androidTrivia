@@ -57,30 +57,41 @@ public class HomeActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent t;
                 switch (position) {
+
                     case 0:
-                        //  t = new Intent(getApplicationContext(), HomeActivity.class);
-                        //startActivity(t);
                         Toast.makeText(getApplicationContext(), "Home",
                                 Toast.LENGTH_SHORT).show();
+                          t = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(t);
+
                         break;
                     case 1:
-                        // t = new Intent(getApplicationContext(), NewGameActivity.class);
-                        //startActivity(t);
+
                         Toast.makeText(getApplicationContext(), "New Game",
                                 Toast.LENGTH_SHORT).show();
+                         t = new Intent(getApplicationContext(), NewGameActivity.class);
+                        startActivity(t);
                         break;
                     case 2:
                         Toast.makeText(getApplicationContext(), "Go to shop",
                                 Toast.LENGTH_SHORT).show();
+                        t = new Intent(getApplicationContext(), ShopActivity.class);
+                        startActivity(t);
                         break;
                     case 3:
+
                         Toast.makeText(getApplicationContext(), "Logout",
                                 Toast.LENGTH_SHORT).show();
+                        //delete share pref
+                        SharedPreferences settings = context.getSharedPreferences("USER_PREFS", Context.MODE_PRIVATE);
+                        settings.edit().clear().commit();
+                        t = new Intent(getApplicationContext(), ShopActivity.class);
+                        startActivity(t);
                         break;
                 }
             }
         });
-//will create the database
+        //will create the database
         myDb = new DataBaseHelperClass(this);
 
         // getting values from shared preferences
