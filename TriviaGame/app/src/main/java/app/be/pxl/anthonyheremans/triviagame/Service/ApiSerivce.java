@@ -60,6 +60,7 @@ public class ApiSerivce extends AsyncTask<String, Void, String> {
                         System.out.println(API_URL + "amount=" + amount
                                 + "&category=" + category
                                 + "&difficulty=" + difficulty + "kkkkkkkkk------" + json);
+                        //String value = new String(json.getBytes("UTF-8"));
                         sb.append(json + "\n");
                     }
                 } catch (Exception e) {

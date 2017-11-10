@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="app.be.pxl.anthonyheremans.triviagame.RoundTwoActivity">
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#d3d3d3"
+        android:orientation="vertical"
+        android:weightSum="1">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20px"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="30px">
+        <TextView
         android:id="@+id/LabelCoin"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
@@ -16,7 +29,7 @@
         android:layout_alignRight="@+id/TxtCoins"
         android:layout_alignEnd="@+id/TxtCoins" />
 
-    <TextView
+        <TextView
         android:id="@+id/TxtCoins"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,111 +40,179 @@
         android:layout_alignParentEnd="true"
         android:layout_marginRight="39dp"
         android:layout_marginEnd="39dp" />
-    <TextView
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20px"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="30px">
+        <TextView
         android:id="@+id/lblRoundTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="32sp"
         android:text="Round 2"
-        android:layout_below="@+id/LabelCoin"
+        android:layout_marginLeft="105dp"
         android:layout_centerHorizontal="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_margin="20px"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="30px">
+        <TextView
+            android:id="@+id/questionNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Placeholder"
 
-    <TextView
-        android:id="@+id/txtQuestion"
-        android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:id="@+id/txtQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+          android:layout_marginLeft="10dp"
+            android:text="Question 1 : placeholder text"
+
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
+
+        <!-- moet nog aangepast worden -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
-        android:text="Question 1 : placeholder text"
-        android:layout_below="@+id/questionNumber"
-        android:layout_centerHorizontal="true" />
-
-    <Button
+        android:layout_margin="20px"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="5px">
+        <Button
         android:id="@+id/btnAnswerOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/txtQuestion"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
+
         android:text="Answer 1"
         android:onClick="answerOneClick"/>
-
-    <Button
-        android:id="@+id/btnAnswerTwo"
-        android:layout_width="wrap_content"
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btnAnswerOne"
-        android:layout_alignRight="@+id/btnAnswerOne"
-        android:layout_below="@+id/btnAnswerOne"
-        android:layout_marginTop="20dp"
+        android:layout_margin="20px"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="5px">
+        <Button
+        android:id="@+id/btnAnswerTwo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
         android:text="Answer 2"
         android:onClick="answerTwoClick"/>
-
-    <Button
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20px"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="5px">
+        <Button
         android:id="@+id/btnAnswerThree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:text="Answer 3"
-        android:layout_below="@+id/btnAnswerTwo"
-        android:layout_centerHorizontal="true"
-        android:onClick="answerThreeClick"/>
 
-    <Button
-        android:id="@+id/btnAnswerfour"
-        android:layout_width="wrap_content"
+        android:onClick="answerThreeClick"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnAnswerThree"
-        android:layout_alignStart="@+id/btnAnswerThree"
-        android:layout_below="@+id/btnAnswerThree"
-        android:layout_marginTop="24dp"
+        android:layout_margin="20px"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="5px">
+        <Button
+        android:id="@+id/btnAnswerfour"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
         android:text="Answer 4"
         android:onClick="answerFourClick"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_margin="20px"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="30px"
+        android:layout_weight="0.52">
+        <TextView
+            android:id="@+id/TxtAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Answer : 5 times"
+            android:layout_alignBaseline="@+id/TxtHint"
+            android:layout_alignBottom="@+id/TxtHint"
+            android:layout_alignLeft="@+id/LabelCoin"
+            android:layout_alignStart="@+id/LabelCoin" />
 
-    <TextView
-        android:id="@+id/TxtAnswer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Answer : 5 times"
-        android:layout_alignBaseline="@+id/TxtHint"
-        android:layout_alignBottom="@+id/TxtHint"
-        android:layout_alignLeft="@+id/LabelCoin"
-        android:layout_alignStart="@+id/LabelCoin" />
+        <Button
+            android:id="@+id/btnAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="13dp"
+            android:text="Give Answer"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/TxtAnswer"
+            android:layout_alignEnd="@+id/TxtAnswer" />
+        <TextView
+            android:id="@+id/TxtHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:text="Hint : 5 times"
+            android:layout_above="@+id/btnHint"
+            android:layout_alignRight="@+id/btnHint"
+            android:layout_alignEnd="@+id/btnHint" />
 
-    <Button
-        android:id="@+id/btnAnswer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="13dp"
-        android:text="Give Answer"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/TxtAnswer"
-        android:layout_alignEnd="@+id/TxtAnswer" />
-    <TextView
-        android:id="@+id/TxtHint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:text="Hint : 5 times"
-        android:layout_above="@+id/btnHint"
-        android:layout_alignRight="@+id/btnHint"
-        android:layout_alignEnd="@+id/btnHint" />
+        <Button
+            android:id="@+id/btnHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Give Hint"
+            android:layout_alignBaseline="@+id/btnAnswer"
+            android:layout_alignBottom="@+id/btnAnswer"
+            android:layout_toLeftOf="@+id/txtQuestion"
+            android:layout_toStartOf="@+id/txtQuestion" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btnHint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Give Hint"
-        android:layout_alignBaseline="@+id/btnAnswer"
-        android:layout_alignBottom="@+id/btnAnswer"
-        android:layout_toLeftOf="@+id/txtQuestion"
-        android:layout_toStartOf="@+id/txtQuestion" />
 
-    <TextView
-        android:id="@+id/questionNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Placeholder"
-        android:layout_below="@+id/lblRoundTwo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp" />
-</android.widget.RelativeLayout>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/navList"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|start"
+        android:background="#333333" />
+</android.support.v4.widget.DrawerLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -152,8 +152,9 @@ public class RoundTwoActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
 
-            Intent home = new Intent(getApplicationContext(), HomeActivity.class);
-            startActivity(home);
+            Intent after = new Intent(getApplicationContext(), AfterQuizActivity.class);
+            after.putExtra("SCORE_OF_USER",String.valueOf(score));
+            startActivity(after);
 //            //TODO : go to thirth screen NOT SECOND
 //            Intent roudnTwoActivty = new Intent(getApplicationContext(),RoundTwoActivity.class);
 //            startActivity(roudnTwoActivty);

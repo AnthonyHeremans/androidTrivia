@@ -23,7 +23,9 @@
         <activity android:name=".NewGameActivity" />
         <activity android:name=".RoundOneActivity" />
         <activity android:name=".RoundTwoActivity" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".ShopActivity" />
+        <activity android:name=".AfterQuizActivity"></activity>
     </application>
 
 </manifest>
